@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Personal Budget Tracker | Ivan Akena</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>💰 Personal Budget Tracker</h1>
+            <p id="dateDisplay" class="date"></p>
+            <p class="subtitle">Track your income and expenses</p>
+        </div>
+
+        <!-- Balance Summary Cards -->
+        <div class="balance-section">
+            <div class="balance-card">
+                <h3>Current Balance</h3>
+                <p id="currentBalance" class="balance-amount">UGX 0</p>
+            </div>
+            <div class="balance-card income">
+                <h3>Total Income</h3>
+                <p id="totalIncome" class="amount">UGX 0</p>
+            </div>
+            <div class="balance-card expense">
+                <h3>Total Expenses</h3>
+                <p id="totalExpenses" class="amount">UGX 0</p>
+            </div>
+        </div>
+
+        <!-- Add Transaction Section -->
+        <div class="add-transaction-section">
+            <h2>Add New Transaction</h2>
+            <div class="form-group">
+                <input type="text" id="descriptionInput" placeholder="Description (e.g., Groceries, Salary)" maxlength="50">
+                <input type="number" id="amountInput" placeholder="Amount (UGX)" step="1">
+                <select id="typeSelect">
+                    <option value="income">💰 Income</option>
+                    <option value="expense">📉 Expense</option>
+                </select>
+                <input type="month" id="monthInput">
+                <button id="addTransactionBtn" class="btn btn-primary">➕ Add Transaction</button>
+            </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <label for="filterMonth">Filter by Month:</label>
+            <input type="month" id="filterMonth">
+            <button id="clearFilterBtn" class="btn btn-secondary">Clear Filter</button>
+        </div>
+
+        <!-- Transactions List -->
+        <div class="transactions-section">
+            <h2>📋 Transactions</h2>
+            <div id="transactionsList" class="transactions-list">
+                <!-- Transactions will be dynamically rendered here -->
+            </div>
+        </div>
+
+        <!-- Spending Chart Section -->
+        <div class="chart-section">
+            <h2>📊 Spending by Category</h2>
+            <canvas id="spendingChart" width="400" height="200"></canvas>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button id="resetAllBtn" class="btn btn-danger">🗑️ Reset All Data</button>
+            <button id="exportBtn" class="btn btn-secondary">📄 Export to CSV</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
